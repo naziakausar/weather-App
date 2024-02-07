@@ -140,6 +140,14 @@
         document.querySelector(".card_innerText2").innerHTML = data.main.humidity +"%";
        
         document.querySelector(".card_innerText").innerHTML = Math.round(data.wind.speed) +" km/h";
+        const timestamp = data.dt;
+      const date= new Date(timestamp*1000)// Convert timestamp to milliseconds
+         const formattedDate= date.toLocaleString();
+        //  const formattedDate = date.toLocaleString(); // Format date and time
+        document.querySelector(".January").innerHTML = formattedDate;
+        const dayOfWeek=date.toLocaleDateString('en-US',{weekday:'long'});// Extract day of the week
+       document.querySelector(".Wednesday").innerHTML = dayOfWeek;
+       
         // console.log("++",document.querySelector(".card_innerText"));
        switch (data.weather[0].main.toLowerCase()){
         case'clouds':
